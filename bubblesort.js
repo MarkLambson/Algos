@@ -26,6 +26,7 @@ const expected = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
  * @param {Array<number>} nums
  * @returns {Array<number>} The given nums after being sorted.
  */
+
 const bubbleSort = (nums) => {
     for (var i = 0; i < nums.length; i++) {
         for (var j = 0; j < nums.length; j++) {
@@ -34,6 +35,7 @@ const bubbleSort = (nums) => {
                 place = nums[j]
                 nums[j] = nums[j+1];
                 nums[j+1] = place
+                // ^this is how to swap numbers in an array^
             }
         }
     }
