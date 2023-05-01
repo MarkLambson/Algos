@@ -1,2 +1,2 @@
 # Algos
-Algorithms from the Python stack at Coding Dojo
+Algorithms from the Python, MERN stacks at Coding Dojo
