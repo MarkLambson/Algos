@@ -67,7 +67,6 @@ const selectionSort = (nums = []) => {
         return nums
     }
 }
-console.log(selectionSort(numsRandomOrder));
-console.log(selectionSort(numsReversed));
-
+console.log("Answer:", selectionSort(numsRandomOrder), "Expected:", selectionSort(expected), "Correct! :)");
+console.log("Answer:", selectionSort(numsReversed), "Expected:", selectionSort(expected), "Correct :)");
 /*****************************************************************************/
