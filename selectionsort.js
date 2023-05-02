@@ -68,5 +68,5 @@ const selectionSort = (nums = []) => {
     }
 }
 console.log("Answer:", selectionSort(numsRandomOrder), "Expected:", selectionSort(expected), "Correct! :)");
-console.log("Answer:", selectionSort(numsReversed), "Expected:", selectionSort(expected), "Correct :)");
+console.log("Answer:", selectionSort(numsReversed), "Expected:", selectionSort(expected), "Correct! :)");
 /*****************************************************************************/
