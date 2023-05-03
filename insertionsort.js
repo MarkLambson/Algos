@@ -51,18 +51,24 @@ const expected = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
  * @returns {Array<number>} The given array after being sorted.
  */
 const insertionSort = (nums) => {
+    // Code goes here
+    //Start iterating over array from the second element 
     for (let i = 1; i < nums.length; i++) {
-
+        //Store the current element in a temp variable
         let temp = nums[i]
-
+        //Initialize a variable j to iterate backwards from the current element
         let j = i - 1
-
+        // White statement j is greater than or equal to 0 && the element at index j is greater than the temp
         while (j >= 0 && nums[j] > temp) {
+            //Shift the element at index j to the right
             nums[j + 1] = nums[j]
+            //Decrement j
             j--
         }
+        //Insert the temp variable (current) to it's correct position (empty slot)
         nums[j + 1] = temp
     }
+    // Return the sorted array
     return nums
 }
 console.log(insertionSort(numsRandomOrder));
