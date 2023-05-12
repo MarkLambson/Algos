@@ -47,3 +47,4 @@ function twoSum(nums, targetSum) {
 console.log("Answer:", twoSum(nums1, targetSum1), "Expected:", expected1);
 console.log("Answer:", twoSum(nums2, targetSum2), "Expected:", expected2);
 console.log("Answer:", twoSum(nums3, targetSum3), "Expected:", expected3);
+//--------------------------------------------------------------------------
