@@ -35,16 +35,27 @@ const expected3 = [];
  * @returns {Array<any>} The given array with only the remaining items.
  */
 function dropIt(arr, cb) {
-    //Code goes here
     let solution = []
     for (let i = 0; i < arr.length; i++) {
-        if (cb(arr[i]))
+        if (cb(arr[i])) {
             solution.push(arr[i])
+        }
     }
     return solution
 }
+console.log("Answer:", dropIt(nums1, callback1), "Expected:", expected1);
+console.log("Answer:", dropIt(nums2, callback2), "Expected:", expected2);
+console.log("Answer:", dropIt(nums3, callback3), "Expected:", expected3);
 
-console.log("Answer:" , dropIt(nums1, callback1), "Expected:" , expected1);
-console.log("Answer:" , dropIt(nums2, callback2), "Expected:" , expected2);
-console.log("Answer:" , dropIt(nums3, callback3), "Expected:" , expected3);
+
+function dropItFun(arr, cb) {
+    let solution = []
+    arr.map((i) => cb(i) ? solution.push(i) : false)
+    return solution
+}
+
+console.log("Answer:", dropItFun(nums1, callback1), "Expected:", expected1);
+console.log("Answer:", dropItFun(nums2, callback2), "Expected:", expected2);
+console.log("Answer:", dropItFun(nums3, callback3), "Expected:", expected3);
 /*****************************************************************************/
+
