@@ -10,9 +10,7 @@ longest song. The order of the returned indexes doesn't matter.
 */
 
 const busDuration1 = 300;
-
 const songDurations1 = [70, 120, 200, 45, 210, 40, 60, 50];
-
 const expected1 = [4, 6]; // 210, 60
 
 /* Explanation:
@@ -23,6 +21,7 @@ The pair at indexes 4 and 6 is the pair with the longest song that is chosen.
 const busDuration2 = 300;
 const songDurations2 = [70, 120, 200, 230, 45, 210, 40, 60, 50];
 const expected2 = [3, 6]; // 230, 40
+
 /* Explanation:
 This is the pair with the longest song.
 */
