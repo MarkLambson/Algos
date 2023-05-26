@@ -29,7 +29,7 @@ This is the pair with the longest song.
 
 const busDuration3 = 300;
 const songDurations3 = [70, 120, 20, 23, 45, 21, 40, 60, 50];
-const expected3 = [-1, -1]; // not found.
+const expected3 = []; // not found.
 
 /**
  * Finds the pair of song durations that adds up to 30 seconds before the bus
