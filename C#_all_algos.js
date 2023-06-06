@@ -41,6 +41,68 @@ class SinglyLinkedList {
     this.head = null;
     }
 
+  /**
+   * Creates a new node with the given data and inserts that node at the front
+   * of this list.
+   * - Time: (?).
+   * - Space: (?).
+   * @param {any} data The data for the new node.
+   * @returns {SinglyLinkedList} This list.
+   */
+  insertAtFront(data) {
+      let newNode = new ListNode(data);
+      if (this.isEmpty()) {
+        this.head = newNode;
+      } else {
+        newNode.next = this.head;
+        this.head = newNode;
+      } 
+      return this;
+  } 
+
+  /**
+   * Removes the first node of this list.
+   * - Time: (?).
+   * - Space: (?).
+   * @returns {any} The data from the removed node.
+   */
+  removeHead() {
+    let temp = 0; 
+    if (this.isEmpty()) {
+      return null;
+    } else {
+      temp = this.head;
+      this.head = temp.next;
+      return temp;
+    }
+  }
+
+  // EXTRA
+  /**
+   * Calculates the average of this list.
+   * - Time: (?).
+   * - Space: (?).
+   * @returns {number|NaN} The average of the node's data.
+   */
+  average() {
+    let sum = 0;
+    let count = 0;
+    if (this.isEmpty()) {
+      return 0;
+    } else {
+      let currentNode = this.head;
+      sum += currentNode.data;
+      count++
+      while (currentNode.next !== null) {
+        currentNode = currentNode.next;
+        sum += currentNode.data;
+        count++
+      }
+      return sum/count;
+    }
+}
+
+
     /**
      * Determines if this list is empty.
      * - Time: O(?).
@@ -83,7 +145,18 @@ class SinglyLinkedList {
      *    or null when the end of the list has been reached.
      * @returns {SinglyLinkedList} This list.
      */
-    insertAtBackRecursive(data, runner = this.head) {}
+    insertAtBackRecursive(data, runner = this.head) {
+      if (this.isEmpty()) {
+        this.head = new ListNode(data);
+        return this;
+      }
+
+      if (runner.next === null) {
+        runner.next = new ListNode(data);
+        return this;
+      }
+      return this.insertAtBackRecursive(data, runner.next);
+    }
 
     /**
      * Calls insertAtBack on each item of the given array.
@@ -132,8 +205,9 @@ const emptyList = new SinglyLinkedList();
     -5, -10, 4, -3, 6, 1, -7, -2,
   ]);
 
-  console.log(unorderedList);
-  console.log(unorderedList.toArr());
+  
+  console.log(secondThreeList.average());
+// console.log(secondThreeList.toArr());
 
   /* node 4 connects to node 1, back to head */
   // const perfectLoopList = new SinglyLinkedList().insertAtBackMany([1, 2, 3, 4]);
