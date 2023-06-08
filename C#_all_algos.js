@@ -42,6 +42,52 @@ class SinglyLinkedList {
   }
 
   /**
+       * Retrieves the data of the second to last node in this list.
+       * - Time: O(?).
+       * - Space: O(?).
+       * @returns {any} The data of the second to last node or null if there is no
+       *    second to last node.
+       */
+  secondToLast() {
+    if (this.isEmpty() || this.head.next === null) {
+      return null;
+    } 
+    let runner = this.head;
+    while (runner.next.next != null) {
+      runner = runner.next;
+    } 
+    return runner.data;
+  }
+
+  /**
+   * Removes the node that has the matching given val as it's data.
+   * - Time: O(?).
+   * - Space: O(?).
+   * @param {any} val The value to compare to the node's data to find the
+   *    node to be removed.
+   * @returns {boolean} Indicates if a node was removed or not.
+   */
+  //a good question about this one for the interviewer: 
+  //"What if there is a multiple value? Am i removing all or the first instance?"
+  removeVal(val) {
+
+  }
+
+  // EXTRA
+  /**
+   * Inserts a new node before a node that has the given value as its data.
+   * - Time: O(?).
+   * - Space: O(?).
+   * @param {any} newVal The value to use for the new node that is being added.
+   * @param {any} targetVal The value to use to find the node that the newVal
+   *    should be inserted in front of.
+   * @returns {boolean} To indicate whether the node was pre-pended or not.
+   */
+  prepend(newVal, targetVal) {
+
+  }
+
+  /**
      * Removes the last node of this list.
      * Cannot traverse backwards through list.
      * Break connection to last node in list.
@@ -129,7 +175,7 @@ class SinglyLinkedList {
     }
     if (runner.next === null) {
       return maxNode.data
-    } 
+    }
     return this.recursiveMax(runner.next, maxNode)
   }
 
@@ -289,7 +335,6 @@ Below commented code depends on insertAtBack method to be completed,
 after completing it, uncomment the code.
   */
 const emptyList = new SinglyLinkedList();
-
 const singleNodeList = new SinglyLinkedList().insertAtBackMany([1]);
 const biNodeList = new SinglyLinkedList().insertAtBackMany([1, 2]);
 const firstThreeList = new SinglyLinkedList().insertAtBackMany([1, 2, 3]);
@@ -298,9 +343,14 @@ const unorderedList = new SinglyLinkedList().insertAtBackMany([
   -5, -10, 4, -3, 6, 1, -7, -2,
 ]);
 
+//console logs------------------------------------------------------//
+console.log(emptyList.secondToLast());
+console.log(singleNodeList.secondToLast());
+console.log(biNodeList.secondToLast());
+console.log(firstThreeList.secondToLast());
+console.log(secondThreeList.secondToLast());
+console.log(unorderedList.secondToLast());
 
-console.log(secondThreeList.recursiveMax());
-// console.log(secondThreeList.toArr());
 
 /* node 4 connects to node 1, back to head */
   // const perfectLoopList = new SinglyLinkedList().insertAtBackMany([1, 2, 3, 4]);
