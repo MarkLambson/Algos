@@ -40,6 +40,7 @@ class SinglyLinkedList {
     /** @type {ListNode|null} */
     this.head = null;
   }
+  //⁡⁢⁣⁢-----------------------------------BELOW IS WHERE NEW FUNCTIONS WILL BE-----------------------------------------//⁡
 
   /**
    * Concatenates the nodes of a given list onto the back of this list.
