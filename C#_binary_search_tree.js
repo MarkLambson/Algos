@@ -40,14 +40,16 @@ class BinarySearchTree {
 //⁡⁢⁣⁢----------------------------------------------BELOW THIS POINT ARE FUNCTIONS----------------------------------------------//⁡
 
     /**
-     * Inserts a new node with the given newVal in the right place to preserver
+     * Inserts a new node with the given newVal in the right place to preserve
      * the order of this tree.
      * - Time: O(?).
      * - Space: O(?).
      * @param {number} newVal The data to be added to a new node.
      * @returns {BinarySearchTree} This tree.
      */
-    insert(newVal) { }
+    insert(newVal) {
+        
+    }
 
     /**
      * Inserts a new node with the given newVal in the right place to preserver
@@ -59,7 +61,9 @@ class BinarySearchTree {
      *    the tree is being traversed.
      * @returns {BinarySearchTree} This tree.
      */
-    insertRecursive(newVal, curr = this.root) { }
+    insertRecursive(newVal, curr = this.root) {
+
+    }
 
     /**
      * Determines if this tree contains the given searchVal.
@@ -299,41 +303,56 @@ threeLevelTree.root.right.left = new BSTNode(13);
   //   .insert(66)
   //   .insert(90);
 
-console.log("---------Print Trees---------")
-emptyTree.print()
-oneNodeTree.print()
-twoLevelTree.print()
-threeLevelTree.print()
-console.log("-------------------------------")
 
-// console.log("---------emptyTree empty, max, min, recursives---------")
+//⁡⁢⁣⁢----------------------------------------CLOGS----------------------------------------⁡//
+// console.log("---------Print Trees---------")
+// emptyTree.print()
+// oneNodeTree.print()
+// twoLevelTree.print()
+// threeLevelTree.print()
+// console.log("-------------------------------")
+
+console.log("---------emptyTree empty, max, min, recursives---------")
 // console.log(emptyTree.isEmpty())
 // console.log(emptyTree.min())
 // console.log(emptyTree.max())
 // console.log(emptyTree.minRecursive())
 // console.log(emptyTree.maxRecursive())
-// console.log("-------------------------------")
+// console.log(emptyTree.range())
+// console.log(emptyTree.contains())
+// console.log(emptyTree.containsRecursive())
+console.log(emptyTree.insertRecursive(5, 1))
+console.log("-------------------------------")
 
-// console.log("---------oneNodeTree empty, max, min, recursives---------")
+console.log("---------oneNodeTree empty, max, min, recursives---------")
 // console.log(oneNodeTree.isEmpty())
 // console.log(oneNodeTree.min())
 // console.log(oneNodeTree.max())
 // console.log(oneNodeTree.minRecursive())
 // console.log(oneNodeTree.maxRecursive())
-// console.log("-------------------------------")
+// console.log(oneNodeTree.range())
+// console.log(oneNodeTree.contains())
+// console.log(oneNodeTree.containsRecursive())
+console.log("-------------------------------")
 
-// console.log("---------twoLevelTree empty, max, min, recursives---------")
+console.log("---------twoLevelTree empty, max, min, recursives---------")
 // console.log(twoLevelTree.isEmpty())
 // console.log(twoLevelTree.min())
 // console.log(twoLevelTree.max())
 // console.log(twoLevelTree.minRecursive())
 // console.log(twoLevelTree.maxRecursive())
-// console.log("-------------------------------")
+// console.log(twoLevelTree.range())
+// console.log(twoLevelTree.contains())
+// console.log(twoLevelTree.containsRecursive())
+console.log("-------------------------------")
 
-// console.log("---------threeLevelTree empty, max, min, recursives---------")
+console.log("---------threeLevelTree empty, max, min, recursives---------")
 // console.log(threeLevelTree.isEmpty())
 // console.log(threeLevelTree.min())
 // console.log(threeLevelTree.max())
 // console.log(threeLevelTree.minRecursive())
 // console.log(threeLevelTree.maxRecursive())
-// console.log("-------------------------------")
+// console.log(threeLevelTree.range())
+// console.log(threeLevelTree.contains())
+// console.log(threeLevelTree.containsRecursive())
+console.log("-------------------------------")
