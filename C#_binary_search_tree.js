@@ -49,11 +49,7 @@ class BinarySearchTree {
         * @returns {Array<number>} The vals in DFS Preorder once all nodes visited.
         */
     toArrPreorder(node = this.root, vals = []) {
-        if (this.isEmpty())
-        {
-            return vals;
-        }
-        
+        vals.push(node.data);
         if (node.left)
         {
             this.toArrPreorder(node.left, vals);
@@ -76,9 +72,6 @@ class BinarySearchTree {
      * @returns {Array<number>} The vals in DFS Preorder once all nodes visited.
      */
     toArrInorder(node = this.root, vals = []) {
-        if (this.isEmpty()) {
-            return vals;
-        }
         if (node.left) {
             this.toArrInorder(node.left, vals);
         }
@@ -99,9 +92,6 @@ class BinarySearchTree {
      * @returns {Array<number>} The vals in DFS Preorder once all nodes visited.
      */
     toArrPostorder(node = this.root, vals = []) {
-        if (this.isEmpty()) {
-            return vals;
-        }
         if (node.left) {
             this.toArrPostorder(node.left, vals);
         }
