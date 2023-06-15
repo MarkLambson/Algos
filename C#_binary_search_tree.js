@@ -390,12 +390,16 @@ threeLevelTree.root.right.left = new BSTNode(13);
 
 
 //⁡⁢⁣⁢----------------------------------------CLOGS----------------------------------------⁡//
-// console.log("---------Print Trees---------")
-// emptyTree.print()
-// oneNodeTree.print()
-// twoLevelTree.print()
-// threeLevelTree.print()
-// console.log("-------------------------------")
+console.log("---------Print Trees---------")
+console.log("Empty Tree")
+emptyTree.print()
+console.log("One Node Tree")
+oneNodeTree.print()
+console.log("Two Level Tree")
+twoLevelTree.print()
+console.log("Three Level Tree")
+threeLevelTree.print()
+console.log("-------------------------------")
 
 console.log("---------emptyTree---------")
 // console.log(emptyTree.isEmpty())
