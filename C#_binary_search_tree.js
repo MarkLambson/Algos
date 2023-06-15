@@ -49,7 +49,20 @@ class BinarySearchTree {
         * @returns {Array<number>} The vals in DFS Preorder once all nodes visited.
         */
     toArrPreorder(node = this.root, vals = []) {
-
+        if (this.isEmpty())
+        {
+            return vals;
+        }
+        
+        if (node.left)
+        {
+            this.toArrPreorder(node.left, vals);
+        }
+        if (node.right) 
+        {
+            this.toArrPreorder(node.right, vals);
+        }
+        return vals;
     }
 
     /**
@@ -63,7 +76,17 @@ class BinarySearchTree {
      * @returns {Array<number>} The vals in DFS Preorder once all nodes visited.
      */
     toArrInorder(node = this.root, vals = []) {
-
+        if (this.isEmpty()) {
+            return vals;
+        }
+        if (node.left) {
+            this.toArrInorder(node.left, vals);
+        }
+        vals.push(node.data);
+        if (node.right) {
+            this.toArrInorder(node.right, vals);
+        }
+        return vals;
     }
 
     /**
@@ -76,7 +99,17 @@ class BinarySearchTree {
      * @returns {Array<number>} The vals in DFS Preorder once all nodes visited.
      */
     toArrPostorder(node = this.root, vals = []) {
-
+        if (this.isEmpty()) {
+            return vals;
+        }
+        if (node.left) {
+            this.toArrPostorder(node.left, vals);
+        }
+        if (node.right) {
+            this.toArrPostorder(node.right, vals);
+        }
+        vals.push(node.data);
+        return vals;
     }
 
     /**
@@ -370,23 +403,23 @@ threeLevelTree.root.right.left = new BSTNode(13);
     4    12  18  24  31  44 66  90
 */
 /***************** Uncomment after insert method is created. ****************/
-  // const fullTree = new BinarySearchTree();
-  // fullTree
-  //   .insert(25)
-  //   .insert(15)
-  //   .insert(10)
-  //   .insert(22)
-  //   .insert(4)
-  //   .insert(12)
-  //   .insert(18)
-  //   .insert(24)
-  //   .insert(50)
-  //   .insert(35)
-  //   .insert(70)
-  //   .insert(31)
-  //   .insert(44)
-  //   .insert(66)
-  //   .insert(90);
+const fullTree = new BinarySearchTree();
+fullTree
+    .insert(25)
+    .insert(15)
+    .insert(10)
+    .insert(22)
+    .insert(4)
+    .insert(12)
+    .insert(18)
+    .insert(24)
+    .insert(50)
+    .insert(35)
+    .insert(70)
+    .insert(31)
+    .insert(44)
+    .insert(66)
+    .insert(90);
 
 
 //⁡⁢⁣⁢----------------------------------------CLOGS----------------------------------------⁡//
@@ -399,6 +432,8 @@ console.log("Two Level Tree")
 twoLevelTree.print()
 console.log("Three Level Tree")
 threeLevelTree.print()
+console.log("Full Tree")
+fullTree.print()
 console.log("-------------------------------")
 
 console.log("---------emptyTree---------")
@@ -443,4 +478,15 @@ console.log("---------threeLevelTree---------")
 // console.log(threeLevelTree.range())
 // console.log(threeLevelTree.contains())
 // console.log(threeLevelTree.containsRecursive())
+console.log("-------------------------------")
+
+console.log("---------fullTree---------")
+// console.log(fullTree.isEmpty())
+// console.log(fullTree.min())
+// console.log(fullTree.max())
+// console.log(fullTree.minRecursive())
+// console.log(fullTree.maxRecursive())
+// console.log(fullTree.range())
+// console.log(fullTree.contains())
+// console.log(fullTree.containsRecursive())
 console.log("-------------------------------")
