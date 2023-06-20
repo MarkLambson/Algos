@@ -16,6 +16,76 @@ class MinHeap {
          */
         this.heap = [null];
     }
+//⁡⁢⁣⁢-----------------------------------INSERT NEW ALGOS BELOW-----------------------------------⁡//
+
+    /**
+        * Extracts the min num from the heap and then re-orders the heap to
+        * maintain order so the next min is ready to be extracted.
+        * 1. Save the first node to a temp var.
+        * 2. Pop last node off and set idx1 equal to the popped value.
+        * 3. Iteratively swap the old last node that is now at idx1 with it's
+        *    smallest child IF the smallest child is smaller than it.
+        * - Time: O(log n) logarithmic due to shiftDown.
+        * - Space: O(1) constant.
+        * @returns {?number} The min number or null if empty.
+        */
+    extract() {
+        let lastIdx = this.heap.length -1;
+        let currentIdx = 1;
+        this.swap(1, lastIdx);
+        let min = this.heap.pop();
+        while (this.heap[currentIdx] > this.heap[this.idxOfLeftChild(currentIdx)] || this.heap[currentIdx] > this.heap[this.idxOfRightChild(currentIdx)]){
+            if (this.heap[this.idxOfLeftChild(currentIdx)] > this.heap[this.idxOfRightChild(currentIdx)]) {
+                this.swap(this.idxOfRightChild(currentIdx) , currentIdx);
+                currentIdx = this.idxOfRightChild(currentIdx);
+            } else {
+                this.swap(this.idxOfLeftChild(currentIdx), currentIdx);
+                currentIdx = this.idxOfLeftChild(currentIdx);
+            }
+    }
+    return min;
+    }
+
+    /**
+   * @param {number} i
+   */
+    idxOfParent(i) {
+        return Math.floor(i / 2);
+    }
+
+    /**
+     * @param {number} i
+     */
+    idxOfLeftChild(i) {
+        return i * 2;
+    }
+
+    /**
+     * @param {number} i
+     */
+    idxOfRightChild(i) {
+        return i * 2 + 1;
+    }
+
+    /**
+     * Swaps two nodes.
+     * @param {number} i
+     * @param {number} j
+     */
+    swap(i, j) {
+        [this.heap[i], this.heap[j]] = [this.heap[j], this.heap[i]];
+    }
+
+    /**
+     * Retrieves the size of the heap, ignoring the null placeholder.
+     * - Time: O(1) constant.
+     * - Space: O(1) constant.
+     * @returns {number}
+     */
+    size() {
+        // - 1 since 0 index is unused
+        return this.heap.length - 1;
+    }
 
     /**
      * Retrieves the top (minimum number) in the heap without removing it.
@@ -82,3 +152,9 @@ console.log(minTree.insert(13));
 console.log(minTree.insert(16));
 console.log(minTree.insert(11));
 console.log(minTree.printHorizontalTree());
+
+console.log("----------------------------------------")
+
+console.log(minTree.extract());
+console.log(minTree.printHorizontalTree());
+
