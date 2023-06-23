@@ -26,7 +26,9 @@ class DoublyLinkedList {
      * @param {any} data The data for the new node.
      * @returns {DoublyLinkedList} This list.
      */
-    insertAtFront(data) { }
+    insertAtFront(data) {
+
+    }
 
     /**
      * Creates a new node and adds it at the back of this list.
@@ -35,7 +37,9 @@ class DoublyLinkedList {
      * @param {any} data The data for the new node.
      * @returns {DoublyLinkedList} This list.
      */
-    insertAtBack(data) { }
+    insertAtBack(data) {
+
+    }
 
     // EXTRA
     /**
@@ -44,8 +48,11 @@ class DoublyLinkedList {
      * - Space: O(?).
      * @returns {any} The data of the removed node.
      */
-    removeMiddleNode() { }
+    removeMiddleNode() {
 
+    }
+
+//⁡⁢⁣⁢----------------------------------------------------------------------------------------------------------------⁡//
     /**
      * Determines if this list is empty.
      * - Time: O(1) constant.
