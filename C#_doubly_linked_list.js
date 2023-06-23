@@ -2,7 +2,30 @@
 TODO: Create the DLLNode class and implement the DoublyLinkedList constructor
 and the empty methods below the constructor.
 */
-
+class DLLNode {
+    /**
+     * Constructs a new Node instance. Executed when the 'new' keyword is used.
+     * @param {any} data The data to be added into this new instance of a Node.
+     *    The data can be anything, just like an array can contain strings,
+     *    numbers, objects, etc.
+     * @returns {DLLNode} A new Node instance is returned automatically without
+     *    having to be explicitly written (implicit return).
+     */
+    constructor(data) {
+        this.data = data;
+        this.head = null;
+        this.tail = null;
+        /**
+           * This property is used to link this node to whichever node is next
+           * in the list. By default, this new node is not linked to any other
+           * nodes, so the setting / updating of this property will happen sometime
+           * after this node is created.
+           *
+           * @type {DLLNode|null}
+           */
+        this.next = null;
+    }
+}
 /**
  * A class to represent a doubly linked list and contain all of it's methods.
  * A doubly linked list is a singly linked list that can be traversed in both
@@ -14,10 +37,11 @@ class DoublyLinkedList {
      * instance that inherits these methods and properties.
      */
     constructor() {
-        // TODO: implement the constructor.
+        /** @type {DLLNode|null} */
+        this.head = null;
+        this.tail = null;
     }
 //⁡⁢⁣⁢----------------------------------------------------------------------------------------------------------------⁡//
-
 
     /**
      * Creates a new node and adds it at the front of this list.
@@ -27,7 +51,16 @@ class DoublyLinkedList {
      * @returns {DoublyLinkedList} This list.
      */
     insertAtFront(data) {
-
+        let newNode = new DLLNode(data);
+        if (this.isEmpty()) {
+            this.head = newNode;
+            this.tail = newNode;
+        } else {
+            newNode.next = this.head;
+            this.head.prev = newNode;
+            this.head = newNode;
+        }
+        return this;
     }
 
     /**
@@ -40,6 +73,22 @@ class DoublyLinkedList {
     insertAtBack(data) {
 
     }
+
+
+    // insertAtBack(data) {
+    //     let newNode = new ListNode(data);
+    //     if (this.isEmpty()) {
+    //         this.head = newNode;
+    //     } else {
+    //         let currentNode = this.head;
+    //         while (currentNode.next !== null) {
+    //             currentNode = currentNode.next;
+    //         }
+    //         currentNode.next = newNode;
+    //     }
+    //     return this;
+    // }
+
 
     // EXTRA
     /**
@@ -93,6 +142,9 @@ class DoublyLinkedList {
 
 const emptyList = new DoublyLinkedList();
 
+
+
+
 /**************** Uncomment these test lists after insertAtBack is created. ****************/
 // const singleNodeList = new DoublyLinkedList().insertAtBack(1);
 // const biNodeList = new DoublyLinkedList().insertAtBack(1).insertAtBack(2);
@@ -108,3 +160,7 @@ const emptyList = new DoublyLinkedList();
 //   -7,
 //   -2,
 // ]);
+
+
+console.log(emptyList.insertAtFront(1));
+// console.log(emptyList.insertAtBack(9));
