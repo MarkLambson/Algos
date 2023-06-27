@@ -14,8 +14,6 @@ class Stack {
         this.items = [];
     }
 
-//⁡⁢⁣⁢--------------------------------------------------------------------------------------------⁡//
-
     /**
      * Adds a new given item to the top / back of this stack.
      * - Time: O(1) constant.
@@ -45,7 +43,7 @@ class Stack {
      * @returns {any} The top / last item of this stack.
      */
     peek() {
-        return this.items[this.size() - 1];
+        return this.items[this.items.length - 1];
     }
 
     /**
@@ -55,7 +53,7 @@ class Stack {
      * @returns {boolean}
      */
     isEmpty() {
-
+        return this.items.length === 0;
     }
 
     /**
@@ -65,7 +63,7 @@ class Stack {
      * @returns {number} The length.
      */
     size() {
-
+        return this.items.length;
     }
 }
 
@@ -81,5 +79,77 @@ class StackNode {
 class LinkedListStack {
     constructor() {
         this.head = null;
+    }
+
+    /**
+     * Adds a new item to the top of the stack (the head).
+     * - Time: O(1) constant.
+     * - Space: O(1).
+     * @param {any} val The val to add.
+     * @returns {void}
+     */
+    push(val) {
+        const newNode = new StackNode(val);
+
+        if (this.head === null) {
+            this.head = newNode;
+        } else {
+            newNode.next = this.head;
+            this.head = newNode;
+        }
+    }
+
+    /**
+     * Removes the top item (the head).
+     * - Time: O(1) constant.
+     * - Space: O(1).
+     * @returns {any} The top item of the stack.
+     */
+    pop() {
+        if (this.head === null) {
+            return null;
+        }
+
+        const removed = this.head;
+        this.head = this.head.next;
+
+        return removed.data;
+    }
+
+    /**
+     * Returns the top item of the stack without removing it.
+     * - Time: O(1) constant.
+     * - Space: O(1).
+     * @returns {any} The top item.
+     */
+    peek() {
+        return this.head ? this.head.data : null;
+    }
+
+    /**
+     * Determines if the stack is empty.
+     * - Time: O(1) constant.
+     * - Space: O(1).
+     * @returns {boolean}
+     */
+    isEmpty() {
+        return this.head === null;
+    }
+
+    /**
+     * Gets the count of items in the stack.
+     * - Time: O(n) linear, n = list length.
+     * - Space: O(1).
+     * @returns {number} The total number of items.
+     */
+    size() {
+        let len = 0;
+        let runner = this.head;
+
+        while (runner) {
+            len += 1;
+            runner = runner.next;
+        }
+        return len;
     }
 }
