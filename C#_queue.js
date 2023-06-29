@@ -19,7 +19,27 @@ class Queue {
      * @returns {boolean} Whether the sum of the left and right halves is equal.
      */
     isSumOfHalvesEqual() {
-        
+        let sumStart = 0;
+        let sumEnd = 0;
+
+        for (let i = 0; i < Math.floor(this.size() / 2); i++) {
+            let valStart = this.dequeue();
+            sumStart += valStart;
+            this.enqueue(valStart);
+        }
+
+        if (this.size() % 2 != 0) {
+            let val = this.dequeue();
+            this.enqueue(val);
+        }
+
+        for (let i = 0; i < Math.floor(this.size() / 2); i++) {
+            let valEnd = this.dequeue();
+            sumEnd += valEnd;
+            this.enqueue(valEnd);
+        }
+
+        return sumStart == sumEnd;
     }
 
     /**
